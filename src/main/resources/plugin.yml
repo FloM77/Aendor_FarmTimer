@@ -1,0 +1,13 @@
+name: FarmTimer
+version: 1.0
+main: AT.MSev.FarmTimer.FarmTimer
+commands:
+  GrowCrops:
+      description: Grow all crops placed by players.
+      usage: /GrowCrops
+      permission: FarmTimer.GrowCrops
+      permission-message: You don't have <permission>
+permissions:
+  FarmTimer.GrowCrops:
+      description: Allows you to use /GrowCrops
+      default: op
