@@ -25,9 +25,9 @@
         <dependency>
             <groupId>AT.MSev</groupId>
             <artifactId>MangoPlugin</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/../#AENDOR/target/MangoPlugin-1.0-SNAPSHOT.jar</systemPath>
+            <systemPath>${project.basedir}/../##Mango_core/target/Mango_Core-1.0.jar</systemPath>
         </dependency>
         <!--Bukkit API-->
         <dependency>
@@ -36,6 +36,40 @@
             <version>1.12.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.4</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>org.bukkit:bukkit</exclude>
+                                </excludes>
+                                <includes>
+                                    <include>joda-time:joda-time</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
